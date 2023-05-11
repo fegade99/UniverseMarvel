@@ -2,5 +2,6 @@ package com.example.universemarvel.model
 
 data class MarvelCharacter (
     val characterName: String,
-    val description: String
+    val description: String,
+    val longDescription: String
 )

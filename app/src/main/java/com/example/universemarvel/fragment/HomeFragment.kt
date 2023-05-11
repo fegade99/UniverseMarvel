@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.universemarvel.MainActivity
+import com.example.universemarvel.R
 import com.example.universemarvel.adapter.MarvelCharacterAdapter
 import com.example.universemarvel.databinding.FragmentHomeBinding
 import com.example.universemarvel.model.CharacterProvider
@@ -45,6 +47,6 @@ class HomeFragment : Fragment(), MarvelCharacterAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        Log.d("HomeFragment", "Clicked item $position")
+        findNavController().navigate(R.id.action_homeFragment_to_descriptionFragment)
     }
 }

@@ -5,43 +5,53 @@ class CharacterProvider {
         val characterList = listOf<MarvelCharacter>(
             MarvelCharacter(
                 "Iron Man",
-                "Hola hola"
+                "Hola hola",
+                "IIIIIIIIII"
             ),
             MarvelCharacter(
                 "Spider-Man",
-                "Hola hola"
+                "Hola hola",
+                "SSSSSSSSSSS"
             ),
             MarvelCharacter(
                 "Hulk",
-                "Hola hola"
+                "Hola hola",
+                "HHHHHHHHHH"
             ),
             MarvelCharacter(
                 "Captain America",
-                "Hola hola"
+                "Hola hola",
+                "CCCCCCCC"
             ),
             MarvelCharacter(
                 "Thanos",
-                "Hola hola"
+                "Hola hola",
+                "TTTTTTTTTTTT"
             ),
             MarvelCharacter(
                 "Thor",
-                "Hola hola"
+                "Hola hola",
+                "THTHTHTHTHTHTH"
             ),
             MarvelCharacter(
                 "Loki",
-                "Hola hola"
+                "Hola hola",
+                "LLLLLLLLLL"
             ),
             MarvelCharacter(
                 "Doctor Strange",
-                "Hola hola"
+                "Hola hola",
+                "DSDSDSDSDSDSDS"
             ),
             MarvelCharacter(
                 "Deadpool",
-                "Hola hola"
+                "Hola hola",
+                "DDDDDDDDDD"
             ),
             MarvelCharacter(
                 "Nick Fury",
-                "Hola hola"
+                "Hola hola",
+                "NNNNNNNNNNNN"
             )
         )
     }
