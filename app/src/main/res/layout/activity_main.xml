@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_home_container"
-        android:name="com.example.universemarvel.fragment.HomeFragment"
+        android:id="@+id/nav_host_fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
         app:layout_constraintBottom_toBottomOf="parent"
