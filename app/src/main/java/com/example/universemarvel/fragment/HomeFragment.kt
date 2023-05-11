@@ -20,8 +20,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        initRecyclerView()
         binding = FragmentHomeBinding.inflate(inflater)
+        initRecyclerView()
         return binding?.root
     }
 

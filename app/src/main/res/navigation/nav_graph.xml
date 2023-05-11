@@ -9,5 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.universemarvel.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_descriptionFragment"
+            app:destination="@id/descriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.universemarvel.fragment.DescriptionFragment"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_description" />
 </navigation>

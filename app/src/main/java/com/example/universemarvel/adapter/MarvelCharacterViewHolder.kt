@@ -13,4 +13,6 @@ class MarvelCharacterViewHolder(view: View):ViewHolder(view){
         binding.tvCharacterName.text = marvelCharacterModel.characterName
         binding.tvShortDescription.text = marvelCharacterModel.description
     }
+
+
 }

@@ -19,10 +19,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add<HomeFragment>(R.id.fragment_home_container)
-        }
 
     }
 
