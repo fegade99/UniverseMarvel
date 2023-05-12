@@ -32,14 +32,17 @@ class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
 
     private fun initRecyclerView(){
         binding?.recyclerCharacter?.layoutManager = LinearLayoutManager(this.context)
-        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList, object :
+        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList, /*object :
             MarvelCharacterAdapter.OnItemClickListener {
             override fun onItemClick(name: MarvelCharacter) {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
                 Log.d(TAG, "onItemClick: $name")
             }
 
-        })
+        }*/){
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
+            Log.d(TAG, "onItemClick: $it")
+        }
 
         binding?.recyclerCharacter?.adapter = adapter
 

@@ -13,7 +13,7 @@ import com.example.universemarvel.fragment.DescriptionFragment
 import com.example.universemarvel.fragment.HomeFragmentDirections
 import com.example.universemarvel.model.MarvelCharacter
 
-class MarvelCharacterAdapter(private val characterList: List<MarvelCharacter>, private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<MarvelCharacterAdapter.MarvelCharacterViewHolder>() {
+class MarvelCharacterAdapter(private val characterList: List<MarvelCharacter>, private val itemClickListener: (MarvelCharacter) -> Unit) : RecyclerView.Adapter<MarvelCharacterAdapter.MarvelCharacterViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCharacterViewHolder {
@@ -24,14 +24,14 @@ class MarvelCharacterAdapter(private val characterList: List<MarvelCharacter>, p
     override fun onBindViewHolder(holder: MarvelCharacterViewHolder, position: Int) {
         val marvelCharacterModel = characterList[position]
         holder.render(marvelCharacterModel)
-        holder.itemView.setOnClickListener{ itemClickListener.onItemClick(marvelCharacterModel) }
+        holder.itemView.setOnClickListener{ itemClickListener(marvelCharacterModel) }
     }
 
     override fun getItemCount(): Int = characterList.size
 
-    interface OnItemClickListener{
+    /*interface OnItemClickListener{
         fun onItemClick(name: MarvelCharacter)
-    }
+    }*/
 
     class MarvelCharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
 
