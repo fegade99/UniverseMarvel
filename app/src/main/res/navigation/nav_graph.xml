@@ -18,5 +18,10 @@
         android:id="@+id/descriptionFragment"
         android:name="com.example.universemarvel.fragment.DescriptionFragment"
         android:label="fragment_description"
-        tools:layout="@layout/fragment_description" />
+        tools:layout="@layout/fragment_description">
+
+        <argument
+            android:name="characterCard"
+            app:argType="com.example.universemarvel.model.MarvelCharacter" />
+    </fragment>
 </navigation>

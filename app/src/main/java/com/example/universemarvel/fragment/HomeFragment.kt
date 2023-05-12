@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.universemarvel.R
 import com.example.universemarvel.adapter.MarvelCharacterAdapter
 import com.example.universemarvel.databinding.FragmentHomeBinding
 import com.example.universemarvel.model.CharacterProvider
@@ -32,7 +31,7 @@ class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
 
     private fun initRecyclerView(){
         binding?.recyclerCharacter?.layoutManager = LinearLayoutManager(this.context)
-        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList, /*object :
+        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList /*object :
             MarvelCharacterAdapter.OnItemClickListener {
             override fun onItemClick(name: MarvelCharacter) {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
@@ -40,8 +39,9 @@ class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
             }
 
         }*/){
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
-            Log.d(TAG, "onItemClick: $it")
+            navigateTo(it)
+            //findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
+            //Log.d(TAG, "onItemClick: $it")
         }
 
         binding?.recyclerCharacter?.adapter = adapter
@@ -59,7 +59,11 @@ class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
         binding = null
         super.onDestroy()
     }
+    private fun navigateTo(character: MarvelCharacter){
 
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment(character))
+        Log.d(TAG, "onItemClick: $character")
+    }
     /*override fun onItemClick(name: MarvelCharacter) {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
     }*/
