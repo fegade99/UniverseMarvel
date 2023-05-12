@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_height">160dp</dimen>
+    <dimen name="margin_top_fragment_description_name">24dp</dimen>
+    <dimen name="text_size_fragment_description_name">45sp</dimen>
+    <dimen name="margin_top_scrollView">24dp</dimen>
+    <dimen name="margin_bottom_scrollView">24dp</dimen>
+    <dimen name="text_size_long_description">20sp</dimen>
+    <dimen name="margins_long_description">10dp</dimen>
+    <dimen name="card_corner_radius">15dp</dimen>
+    <dimen name="card_elevation">3dp</dimen>
+    <dimen name="card_horizontal_vertical_margins">8dp</dimen>
+    <dimen name="card_name_text_size">30sp</dimen>
+    <dimen name="card_short_description_text_size">18sp</dimen>
+    <dimen name="card_short_description_left_right_margins">10dp</dimen>
+    <dimen name="card_short_description_top_bottom_margins">5dp</dimen>
+    <dimen name="card_name_top_margin">5dp</dimen>
 </resources>
