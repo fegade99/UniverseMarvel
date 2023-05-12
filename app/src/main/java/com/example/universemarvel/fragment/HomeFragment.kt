@@ -1,22 +1,22 @@
 package com.example.universemarvel.fragment
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.universemarvel.MainActivity
 import com.example.universemarvel.R
 import com.example.universemarvel.adapter.MarvelCharacterAdapter
 import com.example.universemarvel.databinding.FragmentHomeBinding
 import com.example.universemarvel.model.CharacterProvider
+import com.example.universemarvel.model.MarvelCharacter
 
 
-class HomeFragment : Fragment(), MarvelCharacterAdapter.OnItemClickListener {
+class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
 
     private var binding: FragmentHomeBinding? = null
 
@@ -32,11 +32,22 @@ class HomeFragment : Fragment(), MarvelCharacterAdapter.OnItemClickListener {
 
     private fun initRecyclerView(){
         binding?.recyclerCharacter?.layoutManager = LinearLayoutManager(this.context)
-        binding?.recyclerCharacter?.adapter = MarvelCharacterAdapter(CharacterProvider.characterList, this@HomeFragment)
+        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList, object :
+            MarvelCharacterAdapter.OnItemClickListener {
+            override fun onItemClick(name: MarvelCharacter) {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
+                Log.d(TAG, "onItemClick: $name")
+            }
+
+        })
+
+        binding?.recyclerCharacter?.adapter = adapter
+
+
     }
 
     //override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //super.onViewCreated(view, savedInstanceState)
+    //super.onViewCreated(view, savedInstanceState)
 
 
     //}
@@ -46,7 +57,7 @@ class HomeFragment : Fragment(), MarvelCharacterAdapter.OnItemClickListener {
         super.onDestroy()
     }
 
-    override fun onItemClick(position: Int) {
-        findNavController().navigate(R.id.action_homeFragment_to_descriptionFragment)
-    }
+    /*override fun onItemClick(name: MarvelCharacter) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
+    }*/
 }
