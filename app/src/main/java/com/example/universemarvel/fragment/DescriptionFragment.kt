@@ -32,4 +32,8 @@ class DescriptionFragment : Fragment(){
         val desc = arguments?.getParcelable<MarvelCharacter>("desc")
     }
 
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
+    }
 }
