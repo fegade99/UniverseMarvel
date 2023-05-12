@@ -13,12 +13,13 @@ import com.example.universemarvel.adapter.MarvelCharacterAdapter
 import com.example.universemarvel.databinding.FragmentHomeBinding
 import com.example.universemarvel.model.CharacterProvider
 import com.example.universemarvel.model.MarvelCharacter
+import kotlinx.coroutines.*
 
 
 class HomeFragment : Fragment() {
 
     private var binding: FragmentHomeBinding? = null
-
+    private val coroutineScope = MainScope()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,26 +27,40 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
         initRecyclerView()
+        loadData()
         return binding?.root
     }
 
     private fun initRecyclerView(){
         binding?.recyclerCharacter?.layoutManager = LinearLayoutManager(this.context)
-        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList
+        val adapter = MarvelCharacterAdapter(
+            emptyList()
         ){
             navigateTo(it)
         }
         binding?.recyclerCharacter?.adapter = adapter
     }
 
-    override fun onDestroy() {
-        binding = null
-        super.onDestroy()
-    }
+
     private fun navigateTo(character: MarvelCharacter){
 
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment(character))
         Log.d(TAG, "onItemClick: $character")
     }
 
+    private fun loadData() {
+        coroutineScope.launch(Dispatchers.IO) {
+            val characterList = CharacterProvider.characterList
+            withContext(Dispatchers.Main) {
+                binding?.recyclerCharacter?.adapter = MarvelCharacterAdapter(characterList){
+                    navigateTo(it)
+                }
+            }
+        }
+    }
+    override fun onDestroy() {
+        binding = null
+        coroutineScope.cancel()
+        super.onDestroy()
+    }
 }
