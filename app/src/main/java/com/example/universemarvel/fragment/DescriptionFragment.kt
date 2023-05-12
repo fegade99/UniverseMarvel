@@ -5,12 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.universemarvel.adapter.MarvelCharacterAdapter
 import com.example.universemarvel.databinding.FragmentDescriptionBinding
-import com.example.universemarvel.model.CharacterProvider
-import com.example.universemarvel.model.CharacterProvider.Companion.characterList
 import com.example.universemarvel.model.MarvelCharacter
 
 

@@ -15,7 +15,7 @@ import com.example.universemarvel.model.CharacterProvider
 import com.example.universemarvel.model.MarvelCharacter
 
 
-class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
+class HomeFragment : Fragment() {
 
     private var binding: FragmentHomeBinding? = null
 
@@ -31,29 +31,12 @@ class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
 
     private fun initRecyclerView(){
         binding?.recyclerCharacter?.layoutManager = LinearLayoutManager(this.context)
-        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList /*object :
-            MarvelCharacterAdapter.OnItemClickListener {
-            override fun onItemClick(name: MarvelCharacter) {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
-                Log.d(TAG, "onItemClick: $name")
-            }
-
-        }*/){
+        val adapter = MarvelCharacterAdapter(CharacterProvider.characterList
+        ){
             navigateTo(it)
-            //findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
-            //Log.d(TAG, "onItemClick: $it")
         }
-
         binding?.recyclerCharacter?.adapter = adapter
-
-
     }
-
-    //override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    //super.onViewCreated(view, savedInstanceState)
-
-
-    //}
 
     override fun onDestroy() {
         binding = null
@@ -64,7 +47,5 @@ class HomeFragment : Fragment() /*MarvelCharacterAdapter.OnItemClickListener*/ {
         findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment(character))
         Log.d(TAG, "onItemClick: $character")
     }
-    /*override fun onItemClick(name: MarvelCharacter) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDescriptionFragment())
-    }*/
+
 }

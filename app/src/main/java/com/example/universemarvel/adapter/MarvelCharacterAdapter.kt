@@ -1,16 +1,9 @@
 package com.example.universemarvel.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.universemarvel.R
-import com.example.universemarvel.databinding.FragmentDescriptionBinding
 import com.example.universemarvel.databinding.ItemCharacterBinding
-import com.example.universemarvel.fragment.DescriptionFragment
-import com.example.universemarvel.fragment.HomeFragmentDirections
 import com.example.universemarvel.model.MarvelCharacter
 
 class MarvelCharacterAdapter(private val characterList: List<MarvelCharacter>, private val itemClickListener: (MarvelCharacter) -> Unit) : RecyclerView.Adapter<MarvelCharacterAdapter.MarvelCharacterViewHolder>() {
@@ -29,9 +22,6 @@ class MarvelCharacterAdapter(private val characterList: List<MarvelCharacter>, p
 
     override fun getItemCount(): Int = characterList.size
 
-    /*interface OnItemClickListener{
-        fun onItemClick(name: MarvelCharacter)
-    }*/
 
     class MarvelCharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
 
@@ -41,12 +31,6 @@ class MarvelCharacterAdapter(private val characterList: List<MarvelCharacter>, p
 
         }
 
-        /*init {
-            itemView.setOnClickListener {
-                val itemListener = listener
-                listener.onItemClick(adapterPosition)
-            }
-        }*/
     }
 
 }

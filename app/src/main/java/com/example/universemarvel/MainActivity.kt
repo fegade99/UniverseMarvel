@@ -2,15 +2,9 @@ package com.example.universemarvel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.add
-import androidx.fragment.app.commit
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.universemarvel.adapter.MarvelCharacterAdapter
 import com.example.universemarvel.databinding.ActivityMainBinding
-import com.example.universemarvel.fragment.HomeFragment
-import com.example.universemarvel.model.CharacterProvider
 
 class MainActivity : AppCompatActivity() {
 
